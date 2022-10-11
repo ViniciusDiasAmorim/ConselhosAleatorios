@@ -1,0 +1,11 @@
+﻿@model Advice
+
+<div class="text-xl-center">
+
+    <h1 class="text-xl-center">Receive your Advice now!</h1>
+
+    <a class="btn btn-dark mt-5 text-xl-center" asp-controller="Advice" asp-action="GenerateAdvice" asp-route-advicetype="random">Click here for a random advice</a>
+    
+    <p class="mt-5">@Model.Slip.Advice</p>
+
+</div>

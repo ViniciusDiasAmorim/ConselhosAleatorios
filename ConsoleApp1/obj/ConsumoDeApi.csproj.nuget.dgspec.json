@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\Programação\\0.0 Portfolio\\Teste\\ConsoleApp1\\ConsumoDeApi.csproj": {}
+    "C:\\Users\\User\\Desktop\\Programação\\0.0 Portfolio\\ConselhosAleatorios\\ConsoleApp1\\ConsumoDeApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\Programação\\0.0 Portfolio\\Teste\\ConsoleApp1\\ConsumoDeApi.csproj": {
+    "C:\\Users\\User\\Desktop\\Programação\\0.0 Portfolio\\ConselhosAleatorios\\ConsoleApp1\\ConsumoDeApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\Programação\\0.0 Portfolio\\Teste\\ConsoleApp1\\ConsumoDeApi.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\Programação\\0.0 Portfolio\\ConselhosAleatorios\\ConsoleApp1\\ConsumoDeApi.csproj",
         "projectName": "ConsumoDeApi",
-        "projectPath": "C:\\Users\\User\\Desktop\\Programação\\0.0 Portfolio\\Teste\\ConsoleApp1\\ConsumoDeApi.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\Programação\\0.0 Portfolio\\ConselhosAleatorios\\ConsoleApp1\\ConsumoDeApi.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\Programação\\0.0 Portfolio\\Teste\\ConsoleApp1\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\Programação\\0.0 Portfolio\\ConselhosAleatorios\\ConsoleApp1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

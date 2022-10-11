@@ -9,6 +9,6 @@ namespace ConsoleApp1
     internal class Temp
     {
         public Slip Slip { get; set; }
-
+        public List<Slip> Slips { get; set; }
     }
 }
