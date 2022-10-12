@@ -13,37 +13,53 @@ namespace GeradorDeFrases.Controllers
         public async Task<IActionResult> GenerateAdvice()
         {
 
-                string url = "https://api.adviceslip.com/advice";
-
-                HttpClient cliente = new HttpClient { BaseAddress = new Uri(url) };
-
-                var response = await cliente.GetAsync("advice");
-
-                var content = await response.Content.ReadAsStringAsync();
-
-                var advice = JsonConvert.DeserializeObject<Advice>(content);
-
-                return View(advice);
-        }
-        public async Task<IActionResult> SearchAdvice(string query)
-        {
-
-            string url = $"https://api.adviceslip.com/advice/search/{query}";
+            string url = "https://api.adviceslip.com/advice";
 
             HttpClient cliente = new HttpClient { BaseAddress = new Uri(url) };
 
-            var response = await cliente.GetAsync(query);
+            var response = await cliente.GetAsync("advice");
 
             var content = await response.Content.ReadAsStringAsync();
 
-            var advice = JsonConvert.DeserializeObject<AdviceByQuery>(content);
+            var advice = JsonConvert.DeserializeObject<Advice>(content);
 
-            if(advice != null)
+            return View(advice);
+        }
+        public async Task<IActionResult> SearchAdvice(string query)
+        {
+            try
             {
-                return View(advice);
-            }
+                if (!string.IsNullOrEmpty(query))
+                {
+                    string url = $"https://api.adviceslip.com/advice/search/{query}";
 
-            return View();
+                    HttpClient cliente = new HttpClient { BaseAddress = new Uri(url) };
+
+                    var response = await cliente.GetAsync(query);
+
+                    var content = await response.Content.ReadAsStringAsync();
+
+                    var advice = JsonConvert.DeserializeObject<AdviceByQuery>(content);
+
+                    if (advice.Slips != null)
+                    {
+                        Console.WriteLine(advice.Slips);
+                        return View(advice);
+                    }
+                }
+                else
+                {
+                    return RedirectToAction("GenerateAdvice", "Advice");
+
+                }
+
+                return View("~/Views/Advice/AdviceError.cshtml");
+
+            }
+            catch
+            {             
+                return View("~/Views/Advice/AdviceError.cshtml");
+            }
         }
 
     }

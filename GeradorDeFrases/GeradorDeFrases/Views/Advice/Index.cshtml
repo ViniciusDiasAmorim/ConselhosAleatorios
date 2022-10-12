@@ -1,19 +1,4 @@
 ﻿@model Advice
 
-<div class="text-xl-center">
-
-    <h1>Receive your Advice now!</h1>
-
-    <div class="mt-5 ">
-        
-        <a class="btn btn-outline-dark" asp-controller="Advice" asp-action="GenerateAdvice">Click here for a random advice</a>
-        
-    </div>
-
-    <form asp-controller="Advice" asp-action="SearchAdvice" method="get">
-        <input type="submit" class="btn btn-secondary mt-2" value="Procure" />
-        <input type="search" id="form1" class="form-control-dropdown" name="query" />
-    </form>
-
-</div>
+<partial name="_Menu"></partial>
 
