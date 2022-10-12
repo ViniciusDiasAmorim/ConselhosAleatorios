@@ -6,24 +6,26 @@ namespace GeradorDeFrases.Controllers
 {
     public class AdviceController : Controller
     {
-        public async Task<IActionResult> Index()
-        {
-            return View();
-        }
         public async Task<IActionResult> GenerateAdvice()
         {
+            try
+            {
+                string url = "https://api.adviceslip.com/advice";
 
-            string url = "https://api.adviceslip.com/advice";
+                HttpClient cliente = new HttpClient { BaseAddress = new Uri(url) };
 
-            HttpClient cliente = new HttpClient { BaseAddress = new Uri(url) };
+                var response = await cliente.GetAsync("advice");
 
-            var response = await cliente.GetAsync("advice");
+                var content = await response.Content.ReadAsStringAsync();
 
-            var content = await response.Content.ReadAsStringAsync();
+                var advice = JsonConvert.DeserializeObject<Advice>(content);
 
-            var advice = JsonConvert.DeserializeObject<Advice>(content);
-
-            return View(advice);
+                return View(advice);
+            }
+            catch
+            {
+                return View("~/Views/Advice/AdviceError.cshtml");
+            }
         }
         public async Task<IActionResult> SearchAdvice(string query)
         {
@@ -43,24 +45,22 @@ namespace GeradorDeFrases.Controllers
 
                     if (advice.Slips != null)
                     {
-                        Console.WriteLine(advice.Slips);
+                        Console.WriteLine(advice.TotalResults);
                         return View(advice);
                     }
                 }
                 else
                 {
                     return RedirectToAction("GenerateAdvice", "Advice");
-
                 }
 
                 return View("~/Views/Advice/AdviceError.cshtml");
 
             }
             catch
-            {             
+            {
                 return View("~/Views/Advice/AdviceError.cshtml");
             }
         }
-
     }
 }

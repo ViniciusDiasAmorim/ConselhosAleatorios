@@ -1,12 +1,20 @@
 ﻿@model AdviceByQuery
+@{
+    ViewData["Title"] = "Search Advice";
+}
 
-<div class="text-xl-center">
-    <h1 class="text-xl-center">Receive your Advice now!</h1>
+<partial name="_Menu" />
 
-    <a class="btn btn-dark mt-5 text-xl-center" asp-controller="Advice" asp-action="GenerateAdvice" asp-route-advicetype="random">Click here for a random advice</a>
+<p class="mt-5 text-xl-center fs-5 fw-bold">Has a total of @Model.TotalResults results for the search: @Model.Query</p>
 
-    @foreach (var item in Model.Slips)
-    {
-        <p class="mt-5">@item.Advice</p>
-    }
+
+<div class=" mt-5 border border-dark rounded" style="max-width:750px;min-height:200px;margin:0 auto">
+    <ul>
+
+        @foreach (var item in Model.Slips)
+        {
+            <li class="mt-5"><span>@item.Advice</span></li>
+        }
+
+    </ul>
 </div>

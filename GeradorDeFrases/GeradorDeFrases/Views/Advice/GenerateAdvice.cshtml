@@ -1,7 +1,14 @@
 ﻿@model Advice
+@{
+    ViewData["Title"] = "Random ADvice";
+}
 
 
 <partial name="_Menu" />
 
 
-<p class="mt-5 text-xxl-center">@Model.Slip.Advice</p>
+<div class=" mt-5 border border-dark rounded" style="max-width:750px;min-height:200px;margin:0 auto">
+
+    <p class="mt-2 text-xxl-center">@Model.Slip.Advice</p>
+
+</div>
